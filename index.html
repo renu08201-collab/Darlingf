@@ -168,7 +168,23 @@ top:20px;
 font-size:1.4rem;
 opacity:0.6;
 }
+.music-btn{
+margin-top:15px;
+padding:12px 24px;
+border:none;
+border-radius:30px;
+background:#ff7aa2;
+color:white;
+font-size:1rem;
+cursor:pointer;
+transition:0.3s;
+font-family:'Poppins',sans-serif;
+}
 
+.music-btn:hover{
+transform:scale(1.05);
+background:#ff5c8a;
+}
 @media(max-width:768px){
 
 h1{
@@ -199,6 +215,9 @@ width:100%;
 </style>
 </head>
 <body>
+<audio id="loveSong" loop>
+    <source src="Kya Tujhe Ab Ye Dil Bataye.mpeg" type="audio/mpeg">
+</audio>
 
 <div class="heart" style="left:10%; animation-delay:0s;">❤</div>
 <div class="heart" style="left:25%; animation-delay:2s;">❤</div>
@@ -210,6 +229,9 @@ width:100%;
 <div class="card">
 <div class="music-note">♪</div>
 <h1>For My Darling ❤️</h1>
+<button class="music-btn" onclick="toggleMusic()">
+🎵 A Song That Reminds Me Of You
+</button>
 <p class="typewriter">Some distances only make feelings stronger.</p>
 <a href="#page2" class="btn">Open My Heart</a>
 </div>
@@ -280,9 +302,28 @@ that person is me ❤️
 </section>
 
 <script>
+
+const song = document.getElementById("loveSong");
+
+function toggleMusic(){
+
+const btn = document.querySelector(".music-btn");
+
+if(song.paused){
+song.play();
+btn.innerHTML = "⏸ Pause Music";
+}
+else{
+song.pause();
+btn.innerHTML = "🎵 A Song That Reminds Me Of You";
+}
+
+}
+
 function showMessage(){
 alert("No matter how far you are, you'll always have a special place in my heart, Darling ❤️");
 }
+
 </script>
 
 </body>
